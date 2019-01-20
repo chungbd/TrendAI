@@ -602,7 +602,7 @@
 				969999E82190A71900E39B37 /* Info.plist */,
 				969999EE2190A8B800E39B37 /* Bridging_Header.h */,
 			);
-			path = TrendAI;
+			name = TrendAI;
 			sourceTree = "<group>";
 		};
 		BB418B3A21AE216600789033 /* SocialNetworks */ = {
@@ -1014,7 +1014,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = MAMNV3RD7K;
-				INFOPLIST_FILE = TrendAI/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1023,7 +1023,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ai.deepsocial.TrendAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TrendAI Development";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TrendAI/Bridging_Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Bridging_Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1037,7 +1037,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = MAMNV3RD7K;
-				INFOPLIST_FILE = TrendAI/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1046,7 +1046,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ai.deepsocial.TrendAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "TrendAI Distribution";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TrendAI/Bridging_Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Bridging_Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
