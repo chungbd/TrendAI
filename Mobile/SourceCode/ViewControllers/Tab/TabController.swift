@@ -128,15 +128,12 @@ class TabController: BaseViewController {
                 self?.hideLoginningTwitterView()
             }
         }
-        saveUserInformation()
+        saveUserInformationAtLocal()
+        FirebaseService.instance.saveProfileData()
     }
     
-    func saveUserInformation() {
-        if gCurrentUser.value.twitterInfo == nil {
-            guard let user = UserDefaultHelper.getUser() else { return }
-            gCurrentUser.value = user
-        }
-        FirebaseService.instance.saveProfileData()
+    func saveUserInformationAtLocal() {
+        if let user = UserDefaultHelper.getUser()  { gCurrentUser.value = user }
     }
     
     override func setupRx() {

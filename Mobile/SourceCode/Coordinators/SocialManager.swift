@@ -45,11 +45,7 @@ class SocialManager:NSObject {
                         print("parameters \(parameters)")
                         
                         let user = UserModel()
-                        let twitterInfo = TwitterInfo()
-                        twitterInfo.screenName = parameters["screen_name"] as? String
-                        twitterInfo.userId = parameters["user_id"] as? String
-                        twitterInfo.oAuthToken = credential.oauthToken
-                        twitterInfo.oAuthSecret = credential.oauthTokenSecret
+                        let twitterInfo = TwitterInfo(parameters: parameters, token: credential.oauthToken, secret: credential.oauthTokenSecret)
                         user.twitterInfo = twitterInfo
                         gCurrentUser.value = user
                         UserDefaultHelper.saveUser(user)

@@ -17,5 +17,23 @@ final class TwitterInfo: Codable {
     var oAuthToken: String?
     var oAuthSecret: String?
     var screenName: String?
+    
+    convenience init(parameters:[String:Any], token:String?, secret:String?) {
+        self.init()
+     
+        screenName = parameters["screen_name"] as? String
+        userId = parameters["user_id"] as? String
+        oAuthToken = token
+        oAuthSecret = secret
+    }
+    
+    convenience init(fibTree:CommonDic) {
+        self.init()
+        
+        screenName = fibTree["screen_name"] as? String
+        userId = fibTree["userId"] as? String
+        oAuthToken = fibTree["oAuthToken"] as? String
+        oAuthSecret = fibTree["oAuthSecret"] as? String
+    }
 }
 

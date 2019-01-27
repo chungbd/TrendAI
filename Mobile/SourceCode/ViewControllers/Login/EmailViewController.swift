@@ -298,7 +298,24 @@ class EmailViewController: UIViewController {
                             UIManager.showErrorAlert(withViewController: self, error: unilError)
                     }
                 } else {
-                    RouteCoordinator.share.presentHome()
+                    FirebaseService.instance.getTwitterData(completion: { (infor) in
+                        if let rInfor = infor ,
+                            let token = rInfor.oAuthToken,
+                            let secret = rInfor.oAuthSecret {
+                            TWTRTwitter.sharedInstance().sessionStore.saveSession(withAuthToken: token,
+                                                                                  authTokenSecret: secret,
+                                                                                  completion: { (_, errorSession) in
+                                if errorSession != nil {
+                                    print("errorSession != nil")
+                                }
+                            })
+                        } else {
+                            
+                        }
+                        
+                        RouteCoordinator.share.presentHome()
+                    })
+                    
                 }
             }
         })
