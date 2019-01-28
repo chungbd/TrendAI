@@ -113,10 +113,10 @@ class SessionManagers {
     }
     
     static func signIn(withEmail email:String, password:String,_ completion:@escaping CompletionError) {
-        fetchProviders(fromEmail: email) { (error) in
-            if let rError = error {
-                completion(rError)
-            } else {
+//        fetchProviders(fromEmail: email) { (error) in
+//            if let rError = error {
+//                completion(rError)
+//            } else {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     if let unilError = error as NSError? {
                         switch unilError.code {
@@ -129,8 +129,8 @@ class SessionManagers {
                         completion(nil)
                     }
                 }
-            }
-        }
+//            }
+//        }
     }
     
     static func fetchProviders(fromEmail email:String,_ completion:@escaping CompletionError) {
