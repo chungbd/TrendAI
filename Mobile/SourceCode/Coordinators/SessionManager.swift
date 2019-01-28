@@ -60,7 +60,6 @@ class SessionManagers {
             if error != nil {
                 sessionManager.onChangedTwitterProvider?(sessionManager.hasTwitterProvider())
                 completion(nil, FIBAuthError.notDetermine)
-//                UIManager.showErrorAlert(withViewController: fromViewController, error: error!)
             } else if let unnilSession = session {
                 fromViewController.view.showLoading()
                 let credential = TwitterAuthProvider.credential(withToken: unnilSession.token, secret: unnilSession.secret)
@@ -70,16 +69,15 @@ class SessionManagers {
                         switch unilError.code {
                             case AuthErrorCode.credentialAlreadyInUse.rawValue:
                                 completion(nil, FIBAuthError.twitterExistByAnother)
-//                                UIManager.showAlert(withViewController: fromViewController, content: "The recent Twitter has already used. Please login another Twitter account!")
                             default:
-//                                UIManager.showErrorAlert(withViewController: fromViewController, error: unilError)
                                 completion(nil, FIBAuthError.notDetermine)
                         }
                     } else {
+                        FirebaseService.instance.saveProfileData()
+                        
                         TWTRTwitter.sharedInstance().sessionStore.saveSession(withAuthToken: unnilSession.token, authTokenSecret: unnilSession.secret, completion: { (_, errorSession) in
                             if errorSession != nil {
                                 print("errorSession != nil")
-//                                UIManager.showErrorAlert(withViewController: fromViewController, error: errorSession!)
                             }
                         })
                         completion(result?.user,nil)
